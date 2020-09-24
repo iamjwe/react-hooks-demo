@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import FuncComp from './components/FuncComp_effect';
+import ClassComp from './components/ClassComp_effect';
+
 
 function App() {
+  const [visiable1, setVisibile1] = useState(true)
+  const [visiable2, setVisibile2] = useState(true)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => {setVisibile1(!visiable1)}}>卸载函数组件</button>
+      { visiable1 && <FuncComp />}
+      <button onClick={() => {setVisibile2(!visiable2)}}>卸载类组件</button>
+      { visiable2 && <ClassComp />}
     </div>
   );
 }
